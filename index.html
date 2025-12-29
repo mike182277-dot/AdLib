@@ -1,0 +1,3114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdLib — Авторские украшения-трансформеры</title>
+    <meta name="description" content="Авторские украшения-трансформеры от Светланы Гвоздевой. Гипоаллергенные материалы, эксклюзивный дизайн, безопасная покупка через Avito.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+/* ===== CSS Variables ===== */
+:root {
+    /* Purple color palette */
+    --ink: #1a1a1a;
+    --ink-light: #3d3d3d;
+    --ink-muted: #6b6b6b;
+    --paper: #faf9f7;
+    --paper-warm: #f5f3f8;
+    --cream: #e8dff5;
+    --accent: #5B3A8E;
+    --accent-dark: #4A2E73;
+    --accent-light: #7B5AB8;
+    --white: #ffffff;
+    
+    /* Typography scale */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 8rem;
+    
+    /* Transitions */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ===== Base Reset ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* ===== Section Labels ===== */
+.section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-sm);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--ink);
+    margin-bottom: var(--space-sm);
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--ink-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== Navigation ===== */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem var(--space-md);
+    background: rgba(250, 249, 247, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+    transition: all 0.4s var(--ease-out);
+}
+
+.nav.scrolled {
+    padding: 0.75rem var(--space-md);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.nav-logo span {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-menu a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink-light);
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s var(--ease-out);
+}
+
+.nav-menu a:hover {
+    color: var(--ink);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: all 0.3s var(--ease-out);
+    transform-origin: center;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--paper);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s var(--ease-out);
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-list {
+    text-align: center;
+}
+
+.mobile-menu-list li {
+    margin: 1.5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s var(--ease-out);
+}
+
+.mobile-menu.active .mobile-menu-list li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu.active .mobile-menu-list li:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu.active .mobile-menu-list li:nth-child(2) { transition-delay: 0.15s; }
+.mobile-menu.active .mobile-menu-list li:nth-child(3) { transition-delay: 0.2s; }
+.mobile-menu.active .mobile-menu-list li:nth-child(4) { transition-delay: 0.25s; }
+.mobile-menu.active .mobile-menu-list li:nth-child(5) { transition-delay: 0.3s; }
+
+.mobile-menu-list a {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--ink);
+    transition: color 0.3s ease;
+}
+
+.mobile-menu-list a:hover {
+    color: var(--accent);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #5B3A8E 0%, #7B5AB8 100%);
+}
+
+.hero-grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.hero-shapes {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.shape-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    top: -200px;
+    right: -100px;
+    animation: float 15s ease-in-out infinite;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    bottom: -100px;
+    left: -50px;
+    animation: float 12s ease-in-out infinite reverse;
+}
+
+.shape-3 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    top: 40%;
+    left: 20%;
+    animation: float 10s ease-in-out infinite 2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -30px) scale(1.05); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--white);
+    padding: var(--space-md);
+    max-width: 800px;
+}
+
+.hero-logo {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto var(--space-md);
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-out) 0.2s forwards;
+}
+
+.hero-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.hero-title {
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-sm);
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-out) 0.4s forwards;
+}
+
+.hero-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-out) 0.6s forwards;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.7;
+    margin-bottom: var(--space-lg);
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-out) 0.8s forwards;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-out) 1s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-out);
+}
+
+.btn svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s var(--ease-out);
+}
+
+.btn:hover svg {
+    transform: scale(1.1);
+}
+
+.btn-primary {
+    background: var(--white);
+    color: var(--ink);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--ink);
+    border-color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-light {
+    background: var(--white);
+    color: var(--ink);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline-light {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Scroll Hint */
+.scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-out) 1.2s forwards;
+}
+
+.scroll-icon {
+    width: 24px;
+    height: 40px;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    margin: 0 auto 0.75rem;
+    position: relative;
+}
+
+.scroll-dot {
+    width: 4px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% { top: 8px; opacity: 1; }
+    50% { top: 20px; opacity: 0.3; }
+}
+
+.scroll-hint span {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* ===== Manifesto Section ===== */
+.manifesto {
+    padding: var(--space-xl) 0;
+    background: var(--white);
+    position: relative;
+}
+
+.manifesto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--cream));
+}
+
+.manifesto-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.manifesto-deco {
+    font-family: var(--font-display);
+    font-size: 12rem;
+    line-height: 0.5;
+    color: var(--cream);
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    user-select: none;
+}
+
+.manifesto h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--ink);
+    margin-bottom: var(--space-md);
+    position: relative;
+    z-index: 1;
+}
+
+.manifesto-text {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--ink-light);
+    margin-bottom: var(--space-md);
+    position: relative;
+    z-index: 1;
+}
+
+.manifesto-highlight {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-style: italic;
+    color: var(--accent);
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Gallery Section with Carousel ===== */
+.gallery {
+    padding: var(--space-xl) 0;
+    background: var(--paper-warm);
+    overflow: hidden;
+}
+
+.gallery .container {
+    max-width: 100%;
+    padding: 0;
+}
+
+.gallery .section-header {
+    padding: 0 var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto var(--space-lg);
+}
+
+/* Carousel Container */
+.gallery-carousel {
+    position: relative;
+    padding: 0 var(--space-md);
+}
+
+.gallery-track-wrapper {
+    overflow: hidden;
+    margin: 0 -0.75rem;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: grab;
+    padding: 1rem 0.75rem 2rem;
+}
+
+.gallery-track:active {
+    cursor: grabbing;
+}
+
+.gallery-track.dragging {
+    transition: none;
+}
+
+/* Gallery Item */
+.gallery-item {
+    flex: 0 0 350px;
+    min-width: 350px;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s var(--ease-out);
+    user-select: none;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(91, 58, 142, 0.15);
+}
+
+.gallery-img {
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out);
+    pointer-events: none;
+}
+
+.gallery-item:hover .gallery-img img {
+    transform: scale(1.08);
+}
+
+.gallery-info {
+    padding: 1.25rem 1.5rem;
+    background: var(--white);
+}
+
+.gallery-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+}
+
+.gallery-info span {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+}
+
+/* Carousel Navigation */
+.gallery-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: var(--space-md);
+    padding: 0 var(--space-md);
+}
+
+.gallery-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--white);
+    color: var(--accent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--ease-out);
+}
+
+.gallery-btn:hover {
+    background: var(--accent);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+.gallery-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.gallery-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Carousel Dots */
+.gallery-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.gallery-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-dot.active {
+    background: var(--accent);
+    transform: scale(1.2);
+}
+
+.gallery-dot:hover:not(.active) {
+    background: var(--accent-light);
+}
+
+/* Scroll hint for mobile */
+.gallery-scroll-hint {
+    display: none;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-top: 1rem;
+}
+
+.gallery-scroll-hint svg {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    animation: swipeHint 1.5s ease-in-out infinite;
+}
+
+@keyframes swipeHint {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
+/* Gallery CTA - Telegram link */
+.gallery-cta {
+    text-align: center;
+    margin-top: var(--space-lg);
+    padding: 0 var(--space-md);
+}
+
+.btn-telegram {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    font-size: 1.05rem;
+}
+
+.btn-telegram svg {
+    flex-shrink: 0;
+}
+
+.gallery-cta-hint {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 0 0 300px;
+        min-width: 300px;
+    }
+    
+    .gallery-nav {
+        display: none;
+    }
+    
+    .gallery-scroll-hint {
+        display: block;
+    }
+    
+    .gallery-track {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    
+    .gallery-track::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .gallery-item {
+        scroll-snap-align: center;
+    }
+}
+
+/* ===== Master Section ===== */
+.master {
+    padding: var(--space-xl) 0;
+    background: var(--white);
+}
+
+.master-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.master-header h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+.master-role {
+    font-size: 1.1rem;
+    color: var(--ink-muted);
+}
+
+.master-content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+}
+
+.master-photo {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(91, 58, 142, 0.15);
+    position: sticky;
+    top: 120px;
+}
+
+.master-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.master-story {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.master-quote {
+    position: relative;
+    padding: 0;
+    margin-bottom: var(--space-sm);
+}
+
+.master-quote blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--accent);
+}
+
+.master-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+}
+
+.master-text em {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.master-result {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1.7;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--cream);
+}
+
+.master-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: var(--space-sm);
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--paper);
+    border-radius: 12px;
+    transition: all 0.3s var(--ease-out);
+    flex: 1;
+}
+
+.social-link:hover {
+    background: var(--cream);
+    transform: translateY(-2px);
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    border-radius: 10px;
+    color: var(--accent);
+}
+
+.social-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-label {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+}
+
+.social-handle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+}
+
+@media (max-width: 1024px) {
+    .master-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .master-photo {
+        max-width: 400px;
+        margin: 0 auto;
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .master-social {
+        flex-direction: column;
+    }
+    
+    .master-photo {
+        max-width: 100%;
+    }
+}
+
+/* ===== Philosophy Section ===== */
+.philosophy {
+    padding: var(--space-xl) 0;
+    background: var(--paper-warm);
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.philosophy-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s var(--ease-out);
+}
+
+.philosophy-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.philosophy-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 1rem;
+}
+
+.philosophy-card p {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+}
+
+/* ===== Quality Section ===== */
+.quality {
+    padding: var(--space-xl) 0;
+    background: var(--white);
+}
+
+.quality-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.quality-main h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--ink);
+    margin-bottom: var(--space-sm);
+}
+
+.quality-intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--ink-light);
+}
+
+.quality-box {
+    background: var(--paper);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--accent);
+}
+
+.quality-box h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+}
+
+.quality-box ul {
+    margin-bottom: 1.5rem;
+}
+
+.quality-box li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--ink-light);
+}
+
+.quality-box li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.quality-note {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--ink-muted);
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--cream);
+}
+
+/* ===== Morse Section ===== */
+.morse {
+    padding: var(--space-xl) 0;
+    background: var(--paper-warm);
+}
+
+.morse-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.morse-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+}
+
+.morse-tags span {
+    background: var(--white);
+    color: var(--ink);
+    padding: 0.6rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    border: 1px solid var(--cream);
+    transition: all 0.3s var(--ease-out);
+}
+
+.morse-tags span:hover {
+    background: var(--accent);
+    color: var(--white);
+    border-color: var(--accent);
+}
+
+.morse-demo {
+    background: linear-gradient(135deg, #5B3A8E 0%, #7B5AB8 100%);
+    padding: var(--space-lg);
+    border-radius: 24px;
+    color: var(--white);
+    margin-bottom: var(--space-lg);
+}
+
+.morse-code {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    letter-spacing: 0.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.morse-arrow {
+    font-size: 2rem;
+    opacity: 0.5;
+    margin: 1rem 0;
+}
+
+.morse-word {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.morse-legend {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.morse-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.morse-benefit {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: left;
+}
+
+.morse-benefit h4 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+}
+
+.morse-benefit p {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+}
+
+/* ===== Avito Section ===== */
+.avito {
+    padding: var(--space-xl) 0;
+    background: var(--white);
+}
+
+.avito-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.avito-card {
+    background: var(--paper);
+    padding: 2rem;
+    border-radius: 16px;
+    transition: all 0.4s var(--ease-out);
+}
+
+.avito-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.avito-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 12px;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+.avito-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+}
+
+.avito-card p {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+}
+
+/* ===== Journey Section ===== */
+.journey {
+    padding: var(--space-xl) 0;
+    background: var(--paper-warm);
+}
+
+.journey-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.journey-content h2 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--ink);
+    margin-bottom: var(--space-md);
+}
+
+.journey-text {
+    text-align: left;
+    margin-bottom: var(--space-md);
+}
+
+.journey-text p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--ink-light);
+    margin-bottom: 1.5rem;
+}
+
+.journey-text em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.journey-balance {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: var(--space-md);
+}
+
+.balance-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    color: var(--ink-light);
+}
+
+.balance-item:not(:last-child) {
+    border-bottom: 1px solid var(--cream);
+}
+
+.balance-plus {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--accent);
+}
+
+.journey-result {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--ink);
+}
+
+/* ===== CTA Section ===== */
+.cta {
+    padding: var(--space-xl) 0;
+    background: linear-gradient(135deg, #4A2E73 0%, #5B3A8E 100%);
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-content h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: var(--space-sm);
+}
+
+.cta-content p {
+    font-size: 1.15rem;
+    opacity: 0.8;
+    margin-bottom: var(--space-md);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===== Values Section (Три принципа) ===== */
+.values {
+    padding: var(--space-xl) 0;
+    background: var(--white);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.value-card {
+    background: var(--paper);
+    padding: 2.5rem;
+    border-radius: 20px;
+    transition: all 0.4s var(--ease-out);
+    position: relative;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(91, 58, 142, 0.12);
+}
+
+.value-number {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1;
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 1.25rem;
+    display: block;
+}
+
+.value-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.value-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-muted);
+}
+
+/* ===== Technology Section ===== */
+.technology {
+    padding: var(--space-xl) 0;
+    background: var(--paper-warm);
+}
+
+.tech-split {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.tech-left h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.tech-intro {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--ink-muted);
+}
+
+.tech-item {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.tech-bullet {
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+
+.tech-item h4 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+.tech-item p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--ink-muted);
+}
+
+/* ===== Transformers Section ===== */
+.transformers {
+    padding: var(--space-xl) 0;
+    background: var(--accent);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.transformers::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -15%;
+    width: 60%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    animation: rotateGlow 25s linear infinite;
+}
+
+@keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.transformers-header {
+    max-width: 800px;
+    margin: 0 auto var(--space-lg);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.transformers-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+.transformers-header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.benefit {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s var(--ease-out);
+}
+
+.benefit:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.benefit h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.benefit p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+/* ===== Comparison Section ===== */
+.comparison {
+    padding: var(--space-xl) 0;
+    background: var(--white);
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: var(--space-md);
+}
+
+.comparison-column {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.comparison-header {
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+.comparison-header.mass {
+    background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
+}
+
+.comparison-header.premium {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: var(--white);
+}
+
+.comparison-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+}
+
+.comparison-item {
+    padding: 1.5rem 2rem;
+    display: flex;
+    gap: 1.25rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.comparison-item.negative {
+    background: #fafafa;
+}
+
+.comparison-item.positive {
+    background: var(--cream);
+}
+
+.comparison-item .icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.comparison-item.negative .icon {
+    background: #999;
+    color: var(--white);
+}
+
+.comparison-item.positive .icon {
+    background: var(--accent);
+    color: var(--white);
+}
+
+.comparison-item strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+}
+
+.comparison-item p {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    line-height: 1.5;
+}
+
+/* ===== Allergy Section ===== */
+.allergy {
+    padding: var(--space-xl) 0;
+    background: var(--paper-warm);
+}
+
+.allergy-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.allergy-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.allergy h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+.allergy-intro {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+    color: var(--ink);
+}
+
+.allergy-box {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border-left: 5px solid var(--accent);
+    text-align: left;
+    box-shadow: 0 10px 40px rgba(91, 58, 142, 0.08);
+}
+
+.allergy-box h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+}
+
+.allergy-box ul {
+    margin-bottom: 1.5rem;
+}
+
+.allergy-box li {
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.allergy-box li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.allergy-note {
+    font-style: italic;
+    color: var(--ink-muted);
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--cream);
+}
+
+/* ===== Responsive additions ===== */
+@media (max-width: 1024px) {
+    .tech-split {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .values-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Footer ===== */
+.footer {
+    background: #4A2E73;
+    color: var(--white);
+    padding: var(--space-lg) 0 var(--space-md);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.footer-logo span {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-brand p {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    line-height: 1.7;
+}
+
+.footer-col h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+}
+
+.footer-col li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-col a {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.footer-col a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    opacity: 0.5;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .master-grid,
+    .quality-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .avito-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .philosophy-grid,
+    .morse-benefits {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .avito-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .master-social {
+        flex-direction: column;
+    }
+    
+    .master-quote blockquote::before,
+    .master-quote blockquote::after {
+        display: none;
+    }
+    
+    .balance-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+        text-align: center;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
+
+/* ===== Animations on Scroll ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s var(--ease-out);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">
+                <img src="images/logo.jpg" alt="AdLib">
+                <span>AdLib</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#works">Работы</a></li>
+                <li><a href="#master">Мастер</a></li>
+                <li><a href="#philosophy">Философия</a></li>
+                <li><a href="#quality">Качество</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-list">
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#works">Работы</a></li>
+            <li><a href="#master">Мастер</a></li>
+            <li><a href="#philosophy">Философия</a></li>
+            <li><a href="#quality">Качество</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-grain"></div>
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="images/logo.jpg" alt="AdLib">
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">AdLib</span>
+            </h1>
+            <p class="hero-tagline">Украшения с характером и смыслом</p>
+            <p class="hero-subtitle">В мире масс-маркета мы выбрали другой путь</p>
+            <div class="hero-buttons">
+                <a href="https://t.me/adlib_jew" class="btn btn-primary" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.242-1.865-.442-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.144.121.101.154.238.169.343.015.104.034.343.019.528z"/></svg>
+                    Telegram канал
+                </a>
+                <a href="https://www.avito.ru/moskva/chasy_i_ukrasheniya/sergi_transformery_7881446511" class="btn btn-outline" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    Заказать через Avito
+                </a>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <div class="scroll-icon">
+                <div class="scroll-dot"></div>
+            </div>
+            <span>листайте</span>
+        </div>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="manifesto" id="about">
+        <div class="container">
+            <div class="manifesto-content">
+                <div class="manifesto-deco">"</div>
+                <h2>Это собственное производство и авторский взгляд</h2>
+                <p class="manifesto-text">
+                    Мы не копируем чужие идеи. Каждое изделие начинается с эскиза наших дизайнеров 
+                    и проходит путь от замысла до воплощения в нашей мастерской.
+                </p>
+                <p class="manifesto-highlight">
+                    Высокое качество чувствуется в каждом прикосновении
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Коллекция</span>
+                <h2>Наши работы</h2>
+                <p>Серьги-трансформеры из полимерной глины ручной работы</p>
+            </div>
+            
+            <div class="gallery-carousel">
+                <div class="gallery-track-wrapper">
+                    <div class="gallery-track" id="galleryTrack">
+                        <!-- Слайд 1 -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-1.jpg" alt="Серьги-кольца с подвесками">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Серьги-трансформеры</h3>
+                                <span>4 варианта носки</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 2 -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-2.jpg" alt="Серьги крупный план">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Детали механизмов</h3>
+                                <span>Надёжные крепления</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 3 -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-3.jpg" alt="Синие подвески">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Пухлые бублики</h3>
+                                <span>Полимерная глина</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 4 - Золотые кольца со стразами -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-4.jpg" alt="Золотые серьги-кольца со стразами">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Золотые кольца</h3>
+                                <span>Со стразами</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 5 - Серебряная цепь -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-5.jpg" alt="Серебряная цепь с подвесками">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Серебряная цепь</h3>
+                                <span>С подвесками</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 6 - Золотые серьги крупно -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-6.jpg" alt="Золотые серьги со стразами крупный план">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Вечерний блеск</h3>
+                                <span>Крупный план</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 7 - Золотая коллекция -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-7.jpg" alt="Коллекция золотых украшений">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Золотая коллекция</h3>
+                                <span>Серьги и цепи</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 8 - Серебряные ромбы -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-8.jpg" alt="Серебряные серьги-ромбы">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Геометрия</h3>
+                                <span>Серебряные ромбы</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 9 - Чёрные треугольники -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-9.jpg" alt="Чёрные серьги-треугольники">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Чёрный графит</h3>
+                                <span>Треугольники</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 10 - Золотой сет -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-12.jpg" alt="Золотая коллекция">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Золотой сет</h3>
+                                <span>Серьги и цепи</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 11 - Серебряное сердце -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-13.jpg" alt="Кулон сердце">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Серебряное сердце</h3>
+                                <span>Кулон</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 12 - Геометрия -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-14.jpg" alt="Серьги геометрия">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Круг и квадрат</h3>
+                                <span>Геометрия</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 13 - Гербы -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-15.jpg" alt="Серьги с гербами">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Cor ad Cor</h3>
+                                <span>Серьги-гербы</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 14 - Серебряные капли -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-16.jpg" alt="Серебряные капли">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Серебряные капли</h3>
+                                <span>Органическая форма</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 15 - Буквы -->
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/product-17.jpg" alt="Украшения с буквами">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Персональные буквы</h3>
+                                <span>Именные украшения</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 
+                        =============================================
+                        ДОБАВЛЕНИЕ НОВЫХ ФОТО:
+                        Скопируйте блок ниже и вставьте перед этим комментарием.
+                        Замените src="images/ваше-фото.jpg" на путь к вашему фото.
+                        =============================================
+                        
+                        <div class="gallery-item">
+                            <div class="gallery-img">
+                                <img src="images/ваше-фото.jpg" alt="Описание">
+                            </div>
+                            <div class="gallery-info">
+                                <h3>Название изделия</h3>
+                                <span>Краткое описание</span>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+                
+                <!-- Навигация карусели -->
+                <div class="gallery-nav">
+                    <button class="gallery-btn gallery-prev" id="galleryPrev" aria-label="Предыдущий">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    
+                    <div class="gallery-dots" id="galleryDots">
+                        <!-- Dots генерируются JavaScript -->
+                    </div>
+                    
+                    <button class="gallery-btn gallery-next" id="galleryNext" aria-label="Следующий">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Подсказка для мобильных -->
+                <div class="gallery-scroll-hint">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                    Листайте для просмотра
+                </div>
+                
+                <!-- Ссылка на Telegram -->
+                <div class="gallery-cta">
+                    <a href="https://t.me/adlib_jewelry" target="_blank" class="btn btn-primary btn-telegram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                        </svg>
+                        Все работы в наличии
+                    </a>
+                    <p class="gallery-cta-hint">Актуальные украшения в Telegram-канале</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Master Section -->
+    <section class="master" id="master">
+        <div class="container">
+            <div class="master-header">
+                <span class="section-label">Душа бренда</span>
+                <h2>Светлана Гвоздева</h2>
+                <p class="master-role">Творческий практик и мастер авторского видения</p>
+            </div>
+            
+            <div class="master-content">
+                <div class="master-photo">
+                    <img src="images/master-1.jpg" alt="Светлана Гвоздева">
+                </div>
+                
+                <div class="master-story">
+                    <div class="master-quote">
+                        <blockquote>
+                            «Я создаю образы, которые становятся уникальным выражением внутреннего состояния меня и моих клиентов»
+                        </blockquote>
+                    </div>
+                    
+                    <div class="master-text">
+                        <p>
+                            В моей жизни было то, что есть у многих сильных профессионалов: стабильная карьера, 
+                            корпоративная среда, понятные правила игры. Я прошла путь найма — с дедлайнами, 
+                            регламентами, KPI и ощущением, что ты «на своём месте».
+                        </p>
+                        <p>
+                            Корпоративный опыт дал мне многое: умение держать фокус, работать с качеством, слышать запрос, 
+                            быть надёжной. Но со временем стало ясно — внутри есть нечто большее, чем рамки должностной инструкции.
+                        </p>
+                        <p>
+                            Творчество долго жило параллельно: как способ восстановиться, выдохнуть, почувствовать себя живой. 
+                            В какой-то момент оно перестало быть «хобби после работы» — и стало честным вопросом к себе: 
+                            <em>а что, если попробовать по-настоящему?</em>
+                        </p>
+                        <p>
+                            Решение уйти из найма не было резким. Это был осознанный переход — из роли исполнителя в роль автора. 
+                            Из системы, где всё задано, — в пространство, где ответственность и свобода совпадают.
+                        </p>
+                        <p class="master-result">
+                            Так родился Ad_Lib — на стыке опыта и творчества. Бренд с характером и уважением к личности — 
+                            и клиента, и мастера.
+                        </p>
+                    </div>
+
+                    <div class="master-social">
+                        <a href="https://www.instagram.com/ad_lib.ru/" target="_blank" class="social-link">
+                            <span class="social-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </span>
+                            <span class="social-text">
+                                <span class="social-label">Студия</span>
+                                <span class="social-handle">@ad_lib.ru</span>
+                            </span>
+                        </a>
+                        <a href="https://www.instagram.com/ssgvozdeva/" target="_blank" class="social-link">
+                            <span class="social-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </span>
+                            <span class="social-text">
+                                <span class="social-label">Личный блог</span>
+                                <span class="social-handle">@ssgvozdeva</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="philosophy" id="philosophy">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Принципы</span>
+                <h2>Философия AdLib</h2>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="card-icon">◇</div>
+                    <h3>Меньше, но лучше</h3>
+                    <p>Не гонимся за количеством. Каждая модель — продуманная концепция, не импульсный дизайн.</p>
+                </div>
+                <div class="philosophy-card">
+                    <div class="card-icon">○</div>
+                    <h3>Честность материалов</h3>
+                    <p>Полимерная глина, качественная фурнитура, без «под золото» и дешёвых сплавов.</p>
+                </div>
+                <div class="philosophy-card">
+                    <div class="card-icon">△</div>
+                    <h3>Диалог с клиентом</h3>
+                    <p>Открыты к пожеланиям. Подберём цвет, форму, длину — под ваш стиль и анатомию.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality -->
+    <section class="quality" id="quality">
+        <div class="container">
+            <div class="quality-content">
+                <div class="quality-main">
+                    <span class="section-label">Качество</span>
+                    <h2>Забота о чувствительной коже</h2>
+                    <p class="quality-intro">
+                        Мы понимаем, как важно, чтобы украшения не вызывали дискомфорт. 
+                        Поэтому используем только гипоаллергенную фурнитуру.
+                    </p>
+                </div>
+                <div class="quality-details">
+                    <div class="quality-box">
+                        <h3>Швензы и замки</h3>
+                        <ul>
+                            <li>Хирургическая сталь 316L — стандарт медицинских имплантов</li>
+                            <li>Не содержит никеля в покрытии</li>
+                            <li>Устойчива к окислению и потемнению</li>
+                        </ul>
+                        <p class="quality-note">
+                            Наши клиенты с чувствительной кожей носят серьги без дискомфорта. 
+                            Качество швенз — как у ювелирных изделий.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values (Три принципа) -->
+    <section class="values" id="philosophy">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Философия</span>
+                <h2>Три принципа AdLib</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-number">01</div>
+                    <div class="value-icon">💎</div>
+                    <h3>Авторский дизайн</h3>
+                    <p>
+                        Никакой перепродажи готовой бижутерии. Каждое изделие начинается с эскиза наших 
+                        дизайнеров. Вы покупаете художественную идею, а не копию с маркетплейса.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-number">02</div>
+                    <div class="value-icon">🛠</div>
+                    <h3>Эксклюзивная фурнитура</h3>
+                    <p>
+                        Часть фурнитуры разрабатывается специально для AdLib и производится под заказ. 
+                        Мы заказываем материалы у проверенных поставщиков под нашим контролем.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-number">03</div>
+                    <div class="value-icon">♻️</div>
+                    <h3>Разумное потребление</h3>
+                    <p>
+                        Большинство украшений — трансформеры. Одно изделие заменяет три: снимите подвеску, 
+                        добавьте ярус или измените длину. Десятки образов без лишних покупок.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology -->
+    <section class="technology">
+        <div class="container">
+            <div class="tech-split">
+                <div class="tech-left">
+                    <span class="section-label">Материалы</span>
+                    <h2>Технологии и материалы</h2>
+                    <p class="tech-intro">
+                        Мы работаем с настоящими минералами, гипоаллергенными составами 
+                        и сложными механизмами. Каждое изделие проходит через руки мастера.
+                    </p>
+                </div>
+                <div class="tech-right">
+                    <div class="tech-item">
+                        <div class="tech-bullet"></div>
+                        <div>
+                            <h4>Гипоаллергенность</h4>
+                            <p>Nickel-free фурнитура. Родиевое покрытие — металл платиновой группы, 
+                            используется в медицине. Серебряные штифты.</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-bullet"></div>
+                        <div>
+                            <h4>Натуральные камни</h4>
+                            <p>Природные минералы с уникальным рисунком. Другой вес, температура. 
+                            Никакого пластика или дешёвого стекла.</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-bullet"></div>
+                        <div>
+                            <h4>Сложные механизмы</h4>
+                            <p>Безупречная подгонка деталей. Надёжные карабины, винты, магниты. 
+                            Это требует высокого мастерства.</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-bullet"></div>
+                        <div>
+                            <h4>Долговечность</h4>
+                            <p>При должном уходе украшение сохранит блеск годами. Качественное покрытие 
+                            не темнеет через 2-3 недели, как дешёвые сплавы.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformers -->
+    <section class="transformers">
+        <div class="container">
+            <div class="transformers-header">
+                <h2>Философия трансформеров</h2>
+                <p>
+                    Украшения со съёмными элементами — это про разумное потребление, 
+                    персонализацию и динамичный образ жизни
+                </p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <span class="benefit-icon">🌿</span>
+                    <h3>Экология</h3>
+                    <p>Одно украшение заменяет три. Меньше отходов, меньше лишних покупок.</p>
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">💰</span>
+                    <h3>Экономия</h3>
+                    <p>Готовая капсула образов: от офисного дресс-кода до вечернего выхода.</p>
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">⚡</span>
+                    <h3>Гибкость</h3>
+                    <p>Смените образ день-вечер прямо на ходу — добавьте подвеску за секунду.</p>
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">✨</span>
+                    <h3>Уникальность</h3>
+                    <p>Соберите украшение под себя. Вы точно не встретите копию в кафе.</p>
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">✈️</span>
+                    <h3>Для путешествий</h3>
+                    <p>Вместо шкатулки — пара основ и съёмные элементы. Новый образ каждый день.</p>
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">💜</span>
+                    <h3>Эксклюзив</h3>
+                    <p>Мы не производим огромные тиражи. Ваши серьги — в единственном экземпляре.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison" id="quality">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Сравнение</span>
+                <h2>Почему AdLib стоит дороже</h2>
+                <p>Сравнение с масс-маркетом</p>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-column">
+                    <div class="comparison-header mass">
+                        <h3>Китай / Маркетплейсы</h3>
+                    </div>
+                    <div class="comparison-item negative">
+                        <span class="icon">✗</span>
+                        <div>
+                            <strong>Копирование</strong>
+                            <p>Миллионные тиражи. Такие серьги у тысяч людей</p>
+                        </div>
+                    </div>
+                    <div class="comparison-item negative">
+                        <span class="icon">✗</span>
+                        <div>
+                            <strong>Дешёвые сплавы</strong>
+                            <p>Никель и кадмий. Темнеют через 2-3 недели. Аллергия</p>
+                        </div>
+                    </div>
+                    <div class="comparison-item negative">
+                        <span class="icon">✗</span>
+                        <div>
+                            <strong>Пластик</strong>
+                            <p>Вместо камней — окрашенный пластик или стекло</p>
+                        </div>
+                    </div>
+                    <div class="comparison-item negative">
+                        <span class="icon">✗</span>
+                        <div>
+                            <strong>Хрупкость</strong>
+                            <p>Ломается быстро. Высокий процент брака</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-column">
+                    <div class="comparison-header premium">
+                        <h3>AdLib ✨</h3>
+                    </div>
+                    <div class="comparison-item positive">
+                        <span class="icon">✓</span>
+                        <div>
+                            <strong>Авторский дизайн</strong>
+                            <p>Эскизы с нуля. Художественная идея, интеллектуальный продукт</p>
+                        </div>
+                    </div>
+                    <div class="comparison-item positive">
+                        <span class="icon">✓</span>
+                        <div>
+                            <strong>Гипоаллергенные материалы</strong>
+                            <p>Nickel-free. Родирование. Блеск сохраняется годами</p>
+                        </div>
+                    </div>
+                    <div class="comparison-item positive">
+                        <span class="icon">✓</span>
+                        <div>
+                            <strong>Натуральные камни</strong>
+                            <p>Настоящие минералы с уникальным рисунком</p>
+                        </div>
+                    </div>
+                    <div class="comparison-item positive">
+                        <span class="icon">✓</span>
+                        <div>
+                            <strong>Ручной контроль</strong>
+                            <p>Каждое крепление проверено мастером</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Allergy -->
+    <section class="allergy">
+        <div class="container">
+            <div class="allergy-content">
+                <div class="allergy-icon">🛡️</div>
+                <h2>«У меня аллергия на бижутерию»</h2>
+                <p class="allergy-intro">
+                    Аллергию вызывает никель — самый дешёвый металл в масс-маркете. 
+                    В AdLib его просто нет.
+                </p>
+                <div class="allergy-box">
+                    <h3>AdLib использует:</h3>
+                    <ul>
+                        <li>Гипоаллергенные сплавы Nickel-free</li>
+                        <li>Медицинскую сталь или серебряные штифты</li>
+                        <li>Родиевое покрытие (металл платиновой группы, как в медицине)</li>
+                        <li>Гладкую полировку — не травмирует микроканал в ухе</li>
+                    </ul>
+                    <p class="allergy-note">
+                        Наши клиенты с чувствительной кожей носят серьги без дискомфорта. 
+                        Качество швенз — как у ювелирных изделий.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Morse -->
+    <section class="morse">
+        <div class="container">
+            <div class="morse-content">
+                <div class="section-header">
+                    <span class="section-label">Особенное</span>
+                    <h2>Азбука Морзе в украшениях</h2>
+                    <p>Браслеты с зашифрованными посланиями из натуральных камней</p>
+                </div>
+                
+                <div class="morse-tags">
+                    <span>Имя ребёнка</span>
+                    <span>Любимая фраза</span>
+                    <span>Дата встречи</span>
+                    <span>Мантра</span>
+                    <span>Слово силы</span>
+                </div>
+
+                <div class="morse-demo">
+                    <div class="morse-code">• — • • •   — • — •   • —</div>
+                    <div class="morse-arrow">↓</div>
+                    <div class="morse-word">Верь</div>
+                    <p class="morse-legend">Точка = круглый камень · Тире = камень другого цвета</p>
+                </div>
+
+                <div class="morse-benefits">
+                    <div class="morse-benefit">
+                        <h4>Личный талисман</h4>
+                        <p>Имя близкого, важное воспоминание, мотивационное слово</p>
+                    </div>
+                    <div class="morse-benefit">
+                        <h4>Энергетика камней</h4>
+                        <p>«Спокойствие» из аметиста — камня гармонии</p>
+                    </div>
+                    <div class="morse-benefit">
+                        <h4>Идеальный подарок</h4>
+                        <p>С карточкой-дешифратором. Распаковка — как игра</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avito -->
+    <section class="avito">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Покупка</span>
+                <h2>Почему через Avito</h2>
+                <p>Максимальная защита и удобство</p>
+            </div>
+            <div class="avito-grid">
+                <div class="avito-card">
+                    <span class="avito-num">1</span>
+                    <h3>Безопасность средств</h3>
+                    <p>Деньги резервируются системой. Мы получим оплату только после вашего подтверждения.</p>
+                </div>
+                <div class="avito-card">
+                    <span class="avito-num">2</span>
+                    <h3>Примерочная</h3>
+                    <p>15 минут при получении — вскройте, рассмотрите, примерьте. Не понравилось? Откажитесь, деньги вернутся.</p>
+                </div>
+                <div class="avito-card">
+                    <span class="avito-num">3</span>
+                    <h3>Близость</h3>
+                    <p>Тысячи пунктов выдачи рядом с домом: Почта, СДЭК, Boxberry, Яндекс.</p>
+                </div>
+                <div class="avito-card">
+                    <span class="avito-num">4</span>
+                    <h3>Прозрачность</h3>
+                    <p>Отслеживайте заказ в приложении. Доставка часто дешевле прямой отправки.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Выбирайте украшения с философией</h2>
+                <div class="cta-buttons">
+                    <a href="https://t.me/adlib_jew" class="btn btn-light" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.242-1.865-.442-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.144.121.101.154.238.169.343.015.104.034.343.019.528z"/></svg>
+                        Смотреть коллекции
+                    </a>
+                    <a href="https://www.avito.ru/moskva/chasy_i_ukrasheniya/sergi_transformery_7881446511" class="btn btn-outline-light" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        Заказать через Avito
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/logo.jpg" alt="AdLib">
+                        <span>AdLib</span>
+                    </div>
+                    <p>Украшения с характером и смыслом. Собственное производство, авторский дизайн.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><a href="tel:+79265095104">+7 926 509-51-04</a></li>
+                        <li><a href="mailto:adlib.jewelry@gmail.com">adlib.jewelry@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ссылки</h4>
+                    <ul>
+                        <li><a href="https://t.me/adlib_jew" target="_blank">Telegram</a></li>
+                        <li><a href="https://www.avito.ru/moskva/chasy_i_ukrasheniya/sergi_transformery_7881446511" target="_blank">Avito</a></li>
+                        <li><a href="https://www.instagram.com/ad_lib.ru/" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 AdLib. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+// AdLib Website - Enhanced JavaScript
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ===== Mobile Menu =====
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    
+    function toggleMenu() {
+        navToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    navToggle.addEventListener('click', toggleMenu);
+    
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            toggleMenu();
+        });
+    });
+    
+    // ===== Navbar Scroll Effect =====
+    const nav = document.getElementById('nav');
+    let lastScroll = 0;
+    
+    function handleNavScroll() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    }
+    
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+    
+    // ===== Smooth Scroll for Anchor Links =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const navHeight = nav.offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // ===== Gallery Carousel (Infinite) =====
+    const galleryTrack = document.getElementById('galleryTrack');
+    const prevBtn = document.getElementById('galleryPrev');
+    const nextBtn = document.getElementById('galleryNext');
+    const dotsContainer = document.getElementById('galleryDots');
+    
+    if (galleryTrack && prevBtn && nextBtn) {
+        const items = Array.from(galleryTrack.querySelectorAll('.gallery-item'));
+        const itemWidth = 350 + 24; // item width + gap
+        let currentIndex = 0;
+        let itemsPerView = calculateItemsPerView();
+        const totalItems = items.length;
+        
+        // Clone items for infinite scroll
+        function setupInfiniteScroll() {
+            // Clone first few items and append to end
+            for (let i = 0; i < itemsPerView + 1; i++) {
+                const clone = items[i % totalItems].cloneNode(true);
+                clone.classList.add('clone');
+                galleryTrack.appendChild(clone);
+            }
+            // Clone last few items and prepend to start
+            for (let i = totalItems - 1; i >= totalItems - itemsPerView - 1; i--) {
+                const clone = items[i].cloneNode(true);
+                clone.classList.add('clone');
+                galleryTrack.insertBefore(clone, galleryTrack.firstChild);
+            }
+        }
+        
+        // Calculate how many items fit in view
+        function calculateItemsPerView() {
+            const containerWidth = galleryTrack.parentElement.offsetWidth;
+            return Math.floor(containerWidth / itemWidth) || 1;
+        }
+        
+        // Initialize position (skip cloned items at start)
+        function initPosition() {
+            const cloneOffset = (itemsPerView + 1) * itemWidth;
+            galleryTrack.style.transition = 'none';
+            galleryTrack.style.transform = `translateX(-${cloneOffset}px)`;
+            currentIndex = 0;
+        }
+        
+        // Create dots
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            
+            for (let i = 0; i < totalItems; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('gallery-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+        
+        // Update dots
+        function updateDots() {
+            const dots = dotsContainer.querySelectorAll('.gallery-dot');
+            const normalizedIndex = ((currentIndex % totalItems) + totalItems) % totalItems;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === normalizedIndex);
+            });
+        }
+        
+        // Go to specific slide
+        function goToSlide(index, animate = true) {
+            currentIndex = index;
+            const cloneOffset = (itemsPerView + 1) * itemWidth;
+            const offset = cloneOffset + (currentIndex * itemWidth);
+            
+            if (animate) {
+                galleryTrack.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            } else {
+                galleryTrack.style.transition = 'none';
+            }
+            
+            galleryTrack.style.transform = `translateX(-${offset}px)`;
+            updateDots();
+        }
+        
+        // Handle infinite loop transition
+        function handleInfiniteLoop() {
+            const cloneOffset = (itemsPerView + 1) * itemWidth;
+            
+            if (currentIndex >= totalItems) {
+                setTimeout(() => {
+                    currentIndex = 0;
+                    goToSlide(0, false);
+                }, 500);
+            } else if (currentIndex < 0) {
+                setTimeout(() => {
+                    currentIndex = totalItems - 1;
+                    goToSlide(totalItems - 1, false);
+                }, 500);
+            }
+        }
+        
+        // Next slide
+        function nextSlide() {
+            currentIndex++;
+            goToSlide(currentIndex);
+            handleInfiniteLoop();
+        }
+        
+        // Previous slide
+        function prevSlide() {
+            currentIndex--;
+            goToSlide(currentIndex);
+            handleInfiniteLoop();
+        }
+        
+        // Event listeners
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        
+        // Remove disabled state (infinite scroll)
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+        
+        // Touch/Drag support
+        let isDragging = false;
+        let startX = 0;
+        let currentX = 0;
+        let startOffset = 0;
+        
+        galleryTrack.addEventListener('mousedown', startDrag);
+        galleryTrack.addEventListener('touchstart', startDrag, { passive: true });
+        
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('touchmove', drag, { passive: true });
+        
+        document.addEventListener('mouseup', endDrag);
+        document.addEventListener('touchend', endDrag);
+        
+        function startDrag(e) {
+            isDragging = true;
+            startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+            const transform = galleryTrack.style.transform;
+            const match = transform.match(/translateX\((-?\d+(?:\.\d+)?)px\)/);
+            startOffset = match ? parseFloat(match[1]) : 0;
+            galleryTrack.classList.add('dragging');
+            galleryTrack.style.transition = 'none';
+        }
+        
+        function drag(e) {
+            if (!isDragging) return;
+            
+            currentX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+            const diff = currentX - startX;
+            const newOffset = startOffset + diff;
+            
+            galleryTrack.style.transform = `translateX(${newOffset}px)`;
+        }
+        
+        function endDrag() {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            galleryTrack.classList.remove('dragging');
+            
+            const diff = currentX - startX;
+            const threshold = itemWidth / 3;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff < 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            } else {
+                goToSlide(currentIndex);
+            }
+        }
+        
+        // Auto-play (optional)
+        let autoPlayInterval;
+        
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+        
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+        
+        // Pause on hover
+        galleryTrack.addEventListener('mouseenter', stopAutoPlay);
+        galleryTrack.addEventListener('mouseleave', startAutoPlay);
+        
+        // Handle resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                itemsPerView = calculateItemsPerView();
+                // Rebuild carousel on resize
+                const clones = galleryTrack.querySelectorAll('.clone');
+                clones.forEach(clone => clone.remove());
+                setupInfiniteScroll();
+                initPosition();
+                createDots();
+            }, 200);
+        });
+        
+        // Initialize
+        setupInfiniteScroll();
+        initPosition();
+        createDots();
+        startAutoPlay();
+    }
+    
+    // ===== Intersection Observer for Fade-in Animations =====
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.1
+    };
+    
+    const fadeInElements = document.querySelectorAll(
+        '.philosophy-card, .value-item, .avito-card, .morse-benefit, .manifesto-content, .section-header'
+    );
+    
+    const fadeInObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                fadeInObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    fadeInElements.forEach((el, index) => {
+        el.classList.add('fade-in');
+        el.style.transitionDelay = `${index % 4 * 0.1}s`;
+        fadeInObserver.observe(el);
+    });
+    
+    // ===== Parallax Effect on Hero =====
+    const heroShapes = document.querySelectorAll('.hero-shapes .shape');
+    
+    function handleParallax() {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * 0.3;
+        
+        heroShapes.forEach((shape, index) => {
+            const speed = (index + 1) * 0.15;
+            shape.style.transform = `translateY(${rate * speed}px)`;
+        });
+    }
+    
+    window.addEventListener('scroll', handleParallax, { passive: true });
+    
+    // ===== Button Ripple Effect =====
+    const buttons = document.querySelectorAll('.btn');
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+            `;
+            
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+    
+    // Add ripple animation styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // ===== Console Greeting =====
+    console.log(
+        '%c✨ AdLib — Украшения с характером и смыслом',
+        'color: #5B3A8E; font-size: 16px; font-weight: bold;'
+    );
+});
+    </script>
+</body>
+</html>
